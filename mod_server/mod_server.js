@@ -2,13 +2,13 @@
 // mod_server.js
 //   fab module server
 //
-// Neil Gershenfeld 
+// Neil Gershenfeld
 // (c) Massachusetts Institute of Technology 2014
-// 
-// This work may be reproduced, modified, distributed, performed, and 
-// displayed for any purpose, but must acknowledge the fab modules 
-// project. Copyright is retained and must be preserved. The work is 
-// provided as is; no warranty is provided, and users accept all 
+//
+// This work may be reproduced, modified, distributed, performed, and
+// displayed for any purpose, but must acknowledge the fab modules
+// project. Copyright is retained and must be preserved. The work is
+// provided as is; no warranty is provided, and users accept all
 // liability.
 //
 
@@ -57,7 +57,8 @@ function onWsMessage(ws, data) {
 // Setup the server
 function setup(options, callback) {
 
-  var fileServer = new StaticServer('./');
+  var indexLocation = __dirname + '/../';
+  var fileServer = new StaticServer(indexLocation);
   var httpServer = http.createServer(function (request, response) {
     request.addListener('end', function () {
         fileServer.serve(request, response);
